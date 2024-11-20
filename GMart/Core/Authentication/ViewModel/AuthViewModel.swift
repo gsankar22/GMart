@@ -65,6 +65,18 @@ class AuthViewModel: ObservableObject {
     
     func deleteAccount() {
         
+        //Firestore.collection("users").document().delete()
+    }
+    
+    func resetPassword(withEmail email: String) async throws {
+        
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+            
+        } catch {
+            print("Debug: FaiFORGOT Cled to reset password \(error.localizedDescription)")
+        }
+        
     }
     
     func fetchUser() async {
