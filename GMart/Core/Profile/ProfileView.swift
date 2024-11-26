@@ -10,12 +10,15 @@ import SwiftUI
 struct ProfileView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
+    var user: User
     var body: some View {
-        if let user = viewModel.currentUser {
+        //if let user = viewModel.currentUser {
+       
+
             List{
                 Section{
                     HStack{
-                        Text(user.initials)
+                        Text("GK")
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(Color(.white))
@@ -23,31 +26,97 @@ struct ProfileView: View {
                             .background(Color(.systemGray3))
                             .clipShape(.circle)
                         VStack (alignment: .leading , spacing: 4) {
-                            Text(user.fullname)
+                            Text( User.Mock_user.fullname)
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .padding(.top, 4)
-                            Text(user.email)
+                            Text(User.Mock_user.email)
+                                .font(.footnote)
+                                .accentColor(.gray)
+                            Text("Pass Member")
                                 .font(.footnote)
                                 .accentColor(.gray)
                         }
                     }
-                    
+                }
+               // .background(Color(.systemBlue))
+                //.foregroundColor(Color.yellow)
+                
+                Section("Order Status"){
+                    Button {
+                        print("Orders")
+                    } label: {
+                        SettingsRowView(imageName: "handbag.fill",
+                                        title: "Orders",
+                                        tineColor: .black )
+                    }
                 }
                 Section("General"){
-                    HStack{
-                        SettingsRowView(imageName: "gear",
-                                        title: "version",
-                                        tineColor: Color(.systemGray))
-                        Spacer()
-                        Text("1.0.0")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                    
+                    Button {
+                        print("Profile")
+                    } label: {
+                        SettingsRowView(imageName: "person.crop.circle",
+                                        title: "Profile",
+                                        tineColor: .black )
+                    }
+                    Button {
+                        print("Addresses")
+                    } label: {
+                        SettingsRowView(imageName: "house.fill",
+                                        title: "Addresses",
+                                        tineColor: .black )
+                    }
+                    Button {
+                        print("Rewards")
+                    } label: {
+                        SettingsRowView(imageName: "gift.fill",
+                                        title: "Rewards",
+                                        tineColor: .black )
                     }
                     
                 }
+                Section("Support"){
+                    HStack{
+                        SettingsRowView(imageName: "gear",
+                                        title: "App Version",
+                                        tineColor: Color(.systemGray))
+                        Spacer()
+                        Text("24.11.1")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                    Button {
+                        print("Terms & Condition & Policy")
+                    } label: {
+                        SettingsRowView(imageName: "note.text",
+                                        title: "Terms & Condition & Policy",
+                                        tineColor: .black )
+                    }
+                    //Customer Support
+                    Button {
+                        print("Customer Support")
+                    } label: {
+                        SettingsRowView(imageName: "message.badge.waveform",
+                                        title: "Customer Support & FAQs",
+                                        tineColor: .black )
+                    }
+                }
                 Section("Account"){
-                    
+                    Button {
+                        print("Notification Setings")
+                    } label: {
+                        SettingsRowView(imageName: "bell.slash.circle.fill",
+                                        title: "Notification Setings",
+                                        tineColor: .black )
+                    }
+                    Button {
+                        print("Delete Account")
+                    } label: {
+                        SettingsRowView(imageName: "xmark.circle.fill",
+                                        title: "Delete Account",
+                                        tineColor: .red )
+                    }
                     Button {
                         Task{
                             viewModel.signOut()
@@ -58,19 +127,13 @@ struct ProfileView: View {
                                         tineColor: .red )
                     }
                     
-                    Button {
-                        print("Delete Account")
-                    } label: {
-                        SettingsRowView(imageName: "xmark.circle.fill",
-                                        title: "Delete Account",
-                                        tineColor: .red )
-                    }
+                  
                 }
             }
-        }
+       // }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User(id: "1233", fullname: "Gowri", email: "gowrisankar"))
 }

@@ -38,9 +38,42 @@
 		2EE5D3462CECF4C500B73B93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2EB783712CF4B17F00D13163 /* Exceptions for "GMart" folder in "GMartTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/AddressCustomeView.swift,
+				Core/Address/AddAddressDetails.swift,
+				Core/Address/AddressListView.swift,
+				Core/Address/LocationInfomation.swift,
+				Core/Address/SearchLocation.swift,
+				Core/Profile/ProfileUpdateView.swift,
+				Model/Address.swift,
+			);
+			target = 2EE5D2FF2CECADE100B73B93 /* GMartTests */;
+		};
+		2EB783722CF4B17F00D13163 /* Exceptions for "GMart" folder in "GMartUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Components/AddressCustomeView.swift,
+				Core/Address/AddAddressDetails.swift,
+				Core/Address/AddressListView.swift,
+				Core/Address/LocationInfomation.swift,
+				Core/Address/SearchLocation.swift,
+				Core/Profile/ProfileUpdateView.swift,
+				Model/Address.swift,
+			);
+			target = 2EE5D3092CECADE100B73B93 /* GMartUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2EE5D2F02CECADE000B73B93 /* GMart */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2EB783712CF4B17F00D13163 /* Exceptions for "GMart" folder in "GMartTests" target */,
+				2EB783722CF4B17F00D13163 /* Exceptions for "GMart" folder in "GMartUITests" target */,
+			);
 			path = GMart;
 			sourceTree = "<group>";
 		};
